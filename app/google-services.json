@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "960847588907",
+    "project_id": "mudahale-30a8a",
+    "storage_bucket": "mudahale-30a8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960847588907:android:ed8c7c3e82bca659a5c46e",
+        "android_client_info": {
+          "package_name": "com.example.bitirme_projesi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC23A-nK6DsZQr_VDAbLOLndqUMiKCmdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
