@@ -37,7 +37,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="80dp"
         android:onClick="alcoholChat"
-        android:text="Alkol"
+        android:text="AlkolAhmet"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
