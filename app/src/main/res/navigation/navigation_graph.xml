@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/cigaretteChatFragment"
-        android:name="com.example.bitirme_projesi.CigaretteChatFragment"
+        android:name="com.example.bitirme_projesi.View.CigaretteChatFragment"
         android:label="fragment_cigarette_chat"
         tools:layout="@layout/fragment_cigarette_chat" />
 </navigation>

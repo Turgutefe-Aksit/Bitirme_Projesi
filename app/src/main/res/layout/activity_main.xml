@@ -5,81 +5,116 @@
     android:id="@+id/RegisterText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".View.MainActivity"
+    android:background="@drawable/bg2">
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.1"
+        android:background="@color/green3"
+        ></RelativeLayout>
 
-    <EditText
-        android:id="@+id/emailText"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:alpha="0.8"
+        app:cardCornerRadius="80dp"
 
-        android:layout_marginTop="137dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/custom_input"
-        android:drawableLeft="@drawable/baseline_email_24"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/passWordText"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout"
+        tools:ignore="MissingConstraints">
 
-    <EditText
-        android:id="@+id/passWordText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp"
-        android:background="@drawable/custom_input"
-        android:drawableLeft="@drawable/baseline_lock_person_24"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Şifre"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="515dp">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="108dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="43dp"
-        android:onClick="login"
-        android:text="Giriş"
-        app:layout_constraintBottom_toTopOf="@+id/NewAccText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passWordText"
-        tools:ignore="DuplicateIds,MissingConstraints" />
+            <EditText
+                android:id="@+id/emailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/NewAccText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="171dp"
-        android:text="Henüz kayıt olmadınız mı ?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+                android:layout_marginTop="137dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/custom_input"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="E-mail"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toTopOf="@+id/passWordText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:onClick="register"
-        android:text="Kayıt Ol"
-        android:textColor="#28567C"
-        app:layout_constraintBaseline_toBaselineOf="@+id/NewAccText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/NewAccText" />
+            <EditText
+                android:id="@+id/passWordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="38dp"
+                android:background="@drawable/custom_input"
+                android:drawableLeft="@drawable/baseline_lock_person_24"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Şifre"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+                app:layout_constraintStart_toStartOf="@+id/emailText"
+                app:layout_constraintTop_toBottomOf="@+id/emailText" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="108dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="43dp"
+                android:onClick="login"
+                android:text="Giriş"
+                app:layout_constraintBottom_toTopOf="@+id/NewAccText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passWordText"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/NewAccText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="171dp"
+                android:text="Henüz kayıt olmadınız mı ?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView3"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:minHeight="48dp"
+                android:onClick="register"
+                android:text="Kayıt Ol"
+                android:textColor="#28567C"
+                app:layout_constraintBaseline_toBaselineOf="@+id/NewAccText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/NewAccText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

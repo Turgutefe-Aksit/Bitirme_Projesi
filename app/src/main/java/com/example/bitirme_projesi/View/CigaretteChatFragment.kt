@@ -1,28 +1,36 @@
-package com.example.bitirme_projesi
+package com.example.bitirme_projesi.View
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bitirme_projesi.databinding.FragmentAlcoholChatBinding
+import com.example.bitirme_projesi.Adapter.CigaretteChatRecyclerAdapter
+import com.example.bitirme_projesi.Message
+import com.example.bitirme_projesi.Model.ApiService
 import com.example.bitirme_projesi.databinding.FragmentCigaretteChatBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class AlcoholChatFragment : Fragment() {
+class CigaretteChatFragment : Fragment() {
 
     private lateinit var database: FirebaseFirestore
     private lateinit var auth : FirebaseAuth
-    lateinit var binding: FragmentAlcoholChatBinding
+    lateinit var binding: FragmentCigaretteChatBinding
     private lateinit var recyclerViewAdapter: CigaretteChatRecyclerAdapter
     var messageList = ArrayList<Message>()
+    lateinit var postService: ApiService
+
+    //API
 
 
+
+    //MOBIL
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -32,7 +40,8 @@ class AlcoholChatFragment : Fragment() {
     ): View? {
         auth = FirebaseAuth.getInstance()
         database = FirebaseFirestore.getInstance()
-        binding = FragmentAlcoholChatBinding.inflate(layoutInflater)
+        binding = FragmentCigaretteChatBinding.inflate(layoutInflater)
+        //return inflater.inflate(R.layout.fragment_cigarette_chat, container, false)
 
         val layoutManager = LinearLayoutManager(context)
         layoutManager.reverseLayout = true
@@ -49,37 +58,47 @@ class AlcoholChatFragment : Fragment() {
             sendDataToCigarette()
         }
 
+        //binding.recyclerviewCigaratteChatLog.layoutManager = LinearLayoutManager(context)
+        //val chatAdapter = CigaretteChatRecyclerAdapter(messageList)
+        //binding.recyclerviewCigaratteChatLog.adapter = chatAdapter
+
+
     }
 
     override fun onResume() {
         super.onResume()
 
+        //recyclerViewAdapter = CigaretteChatRecyclerAdapter(messageList)
+        //binding.recyclerviewCigaratteChatLog.adapter = recyclerViewAdapter
         bringDatas()
 
     }
 
+
+
     fun bringDatas(){
-        database.collection("alcoholChat")
+        database.collection("cigaretteChat")
             .orderBy("DateTime",com.google.firebase.firestore.Query.Direction.DESCENDING)
             .addSnapshotListener { value, error ->
-                if (value!=null){
-                    if (!value.isEmpty){
-                        val docs = value.documents
+            if (value!=null){
+                if (!value.isEmpty){
+                    val docs = value.documents
 
-                        messageList.clear()
+                    messageList.clear()
 
-                        for (doc in docs){
-                            val nickName = doc.get("NickName") as String
-                            val message = doc.get("Message") as String
-                            val index = Message(message,nickName)
-                            println(index.mesaj)
-                            messageList.add(index)
-                        }
+                    for (doc in docs){
+                        val nickName = doc.get("NickName") as String
+                        val message = doc.get("Message") as String
+                        val id = doc.get("UserID") as String
+                        val index = Message(message,nickName,id)
 
-                        recyclerViewAdapter.notifyDataSetChanged()
+                        messageList.add(index)
                     }
+
+                    recyclerViewAdapter.notifyDataSetChanged()
                 }
             }
+        }
     }
 
     fun sendDataToCigarette(){
@@ -100,14 +119,14 @@ class AlcoholChatFragment : Fragment() {
                         postHashMap.put("UserID",currUserID)
                         postHashMap.put("DateTime",time)
                         postHashMap.put("Message",message)
-                        database.collection("alcoholChat").add(postHashMap)
+                        database.collection("cigaretteChat").add(postHashMap)
                     }
                 }
             }
 
         }
+        binding.cigaratteChatText.text = null
 
     }
-
-
 }
+

@@ -4,23 +4,14 @@
 
     <item
         android:id="@+id/home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:icon="@drawable/baseline_home_24"
-        app:showAsAction="always"
-        android:title="" />
+        android:title="Ana Ekran" />
     <item
         android:id="@+id/chat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:icon="@drawable/baseline_chat_24"
-        app:showAsAction="always"
-        android:title="" />
+        android:title="Sohbet" />
     <item
         android:id="@+id/calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:icon="@drawable/baseline_calendar_month_24"
-        app:showAsAction="always"
-        android:title="" />
+        android:title="Takip" />
 </menu>
